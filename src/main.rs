@@ -26,7 +26,7 @@ fn main() {
                     for line in clipboard.get_text().unwrap_or_else(|_| {
                         println!("Clipboard is empty!");
                         "".to_owned()
-                    }).split("\n") {
+                    }).split(if cfg!(windows) {"\r\n"} else {"\n"}) {
                         if first {
                             first = false;
                         } else {
