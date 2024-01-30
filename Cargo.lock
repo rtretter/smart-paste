@@ -945,15 +945,18 @@ dependencies = [
 
 [[package]]
 name = "enigo"
-version = "0.1.3"
+version = "0.2.0-rc2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "802e4b2ae123615659085369b453cba87c5562e46ed8050a909fee18a9bc3157"
+checksum = "6925cb691c78a9620a2bfc8caab15e8028c8665b41a726f83313ff2cd0df01b2"
 dependencies = [
+ "core-foundation",
  "core-graphics 0.23.1",
  "libc",
+ "log",
  "objc",
- "pkg-config",
  "windows 0.51.1",
+ "xkbcommon",
+ "xkeysym",
 ]
 
 [[package]]
@@ -1637,6 +1640,15 @@ checksum = "523dc4f511e55ab87b694dc30d0f820d60906ef06413f93d4d7a1385599cc149"
 
 [[package]]
 name = "memmap2"
+version = "0.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "43a5a03cefb0d953ec0be133036f14e109412fa594edc2f77227249db66cc3ed"
+dependencies = [
+ "libc",
+]
+
+[[package]]
+name = "memmap2"
 version = "0.9.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fe751422e4a8caa417e13c3ea66452215d7d63e19e604f4980461212f3ae1322"
@@ -2201,7 +2213,7 @@ checksum = "82b2eaf3a5b264a521b988b2e73042e742df700c4f962cde845d1541adb46550"
 dependencies = [
  "ab_glyph",
  "log",
- "memmap2",
+ "memmap2 0.9.4",
  "smithay-client-toolkit",
  "tiny-skia",
 ]
@@ -2312,7 +2324,7 @@ dependencies = [
  "cursor-icon",
  "libc",
  "log",
- "memmap2",
+ "memmap2 0.9.4",
  "rustix 0.38.30",
  "thiserror",
  "wayland-backend",
@@ -3173,7 +3185,7 @@ dependencies = [
  "js-sys",
  "libc",
  "log",
- "memmap2",
+ "memmap2 0.9.4",
  "ndk",
  "ndk-sys",
  "objc2 0.4.1",
@@ -3288,6 +3300,17 @@ checksum = "2769203cd13a0c6015d515be729c526d041e9cf2c0cc478d57faee85f40c6dcd"
 dependencies = [
  "nix",
  "winapi",
+]
+
+[[package]]
+name = "xkbcommon"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "13867d259930edc7091a6c41b4ce6eee464328c6ff9659b7e4c668ca20d4c91e"
+dependencies = [
+ "libc",
+ "memmap2 0.8.0",
+ "xkeysym",
 ]
 
 [[package]]

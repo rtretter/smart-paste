@@ -1,7 +1,10 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")] // hide console window on Windows in release
 
 use egui::IconData;
-use enigo::*;
+use enigo::{
+    Enigo, Key, Keyboard, Settings,
+    Direction::Click,
+};
 use global_hotkey::{GlobalHotKeyManager, hotkey::{HotKey, Modifiers, Code}, GlobalHotKeyEvent, HotKeyState};
 use arboard::Clipboard;
 use eframe::egui;
@@ -19,8 +22,8 @@ fn main() {
                 if hotkey_paste.id() == event.id && event.state == HotKeyState::Released {
                     let mut clipboard = Clipboard::new().unwrap();
     
-                    let mut enigo = Enigo::new();
-                    enigo.key_click(Key::Control);
+                    let mut enigo = Enigo::new(&Settings::default()).unwrap();
+                    let _ = enigo.key(Key::Control, Click);
                     thread::sleep(Duration::from_millis(50));
                     let mut first = true;
                     for line in clipboard.get_text().unwrap_or_else(|_| {
@@ -30,9 +33,9 @@ fn main() {
                         if first {
                             first = false;
                         } else {
-                            enigo.key_click(Key::Return);
+                            let _ = enigo.key(Key::Return, Click);
                         }
-                        enigo.key_sequence(line);
+                        let _ = enigo.text(line);
                     }
                 }
             }

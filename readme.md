@@ -19,11 +19,12 @@ MacOS blocks external control of keystrokes via the settings. This app can be ad
 
 ## MacOS Autostart (Optional)
 To automatically start the app on MacOS you have to create an application via the automator and then add it to the Login items.
-1. Press "Command + Space" - search for "automator"
-2. Choose Application
-3. Search for "shell script" and select "Run Shell Script"
-4. As command enter `/usr/local/bin/smart-paste`
-5. Press "Command + S" to save the app under the name `smart-paste`
+1. Move the executable to `/usr/local/bin/smart-paste`
+2. Press "Command + Space" - search for "automator"
+3. Choose Application
+4. Search for "shell script" and select "Run Shell Script"
+5. As command enter `/usr/local/bin/smart-paste`
+6. Press "Command + S" to save the app under the name `smart-paste`
 
 After creating the Application you now have to add it to the Login items:
 1. Open Settings > General > Login Items
