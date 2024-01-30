@@ -23,8 +23,7 @@ fn main() {
                     let mut clipboard = Clipboard::new().unwrap();
                     
                     let mut settings = Settings::default();
-                    println!("{}", settings.mac_delay);
-                    settings.mac_delay = 2;
+                    settings.mac_delay = 1;
                     let mut enigo = Enigo::new(&settings).unwrap();
                     let _ = enigo.key(Key::Control, Click);
                     thread::sleep(Duration::from_millis(50));
