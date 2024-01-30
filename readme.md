@@ -23,7 +23,7 @@ To automatically start the app on MacOS you have to create an application via th
 2. Press "Command + Space" - search for "automator"
 3. Choose Application
 4. Search for "shell script" and select "Run Shell Script"
-5. As command enter `/usr/local/bin/smart-paste`
+5. As command enter `nohup /usr/local/bin/smart-paste > /dev/null 2>&1 &` - this will run and then disown the smart-paste app so the automator does not get stuck.
 6. Press "Command + S" to save the app under the name `smart-paste`
 
 After creating the Application you now have to add it to the Login items:
