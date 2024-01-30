@@ -21,21 +21,23 @@ fn main() {
             if let Ok(event) = global_hotkey_channel.try_recv() {
                 if hotkey_paste.id() == event.id && event.state == HotKeyState::Released {
                     let mut clipboard = Clipboard::new().unwrap();
-    
-                    let mut enigo = Enigo::new(&Settings::default()).unwrap();
+                    
+                    let mut settings = Settings::default();
+                    println!("{}", settings.mac_delay);
+                    settings.mac_delay = 2;
+                    let mut enigo = Enigo::new(&settings).unwrap();
                     let _ = enigo.key(Key::Control, Click);
                     thread::sleep(Duration::from_millis(50));
-                    let mut first = true;
-                    for line in clipboard.get_text().unwrap_or_else(|_| {
+                    let clipboard_text = clipboard.get_text().unwrap_or_else(|_| {
                         println!("Clipboard is empty!");
                         "".to_owned()
-                    }).split(if cfg!(windows) {"\r\n"} else {"\n"}) {
-                        if first {
-                            first = false;
-                        } else {
+                    }).replace("\r", "");
+                    for (index, line) in clipboard_text.split("\n").enumerate() {
+                        if index > 0 {
                             let _ = enigo.key(Key::Return, Click);
                         }
                         let _ = enigo.text(line);
+                        println!("{}: {}", index, line);
                     }
                 }
             }
