@@ -15,7 +15,7 @@ The application can be manually executed by executing the binary build or automa
 ## MacOS Privacy Settings (Required)
 MacOS blocks external control of keystrokes via the settings. This app can be added to the whitelist in the settings.
 1. Open Settings > Privacy & Security > Accessibility
-2. Add Terminal (or smart-paste if running as Application)
+2. Add Terminal
 
 ## MacOS Autostart (Optional)
 To automatically start the app on MacOS you have to create an application via the automator and then add it to the Login items.
@@ -30,6 +30,11 @@ After creating the Application you now have to add it to the Login items:
 1. Open Settings > General > Login Items
 2. Click the "+" button
 3. Select the created app (smart-paste)
+
+To be able to automatically send keystrokes the application has to be added to the whitelist.
+When using the autostart method you aditionally have to add the automator to the accessibility-whitelist.
+1. Open Settings > Privacy & Security > Accessibility
+2. Add "smart-paste" and "Automator"
 
 ## Windows Autostart (Optional)
 To add the app to autostart for windows it should be possible to simply add the application to the startup folder.
