@@ -16,6 +16,7 @@ The application can be manually executed by executing the binary build or automa
 MacOS blocks external control of keystrokes via the settings. This app can be added to the whitelist in the settings.
 1. Open Settings > Privacy & Security > Accessibility
 2. Add Terminal
+3. (Optional) If MacOS won't let you start the executable try removing it from quarantine with the following command: `xattr -dr com.apple.quarantine <path-to-binary>/smart-paste`
 
 ## MacOS Autostart (Optional)
 To automatically start the app on MacOS you have to create an application via the automator and then add it to the Login items.
