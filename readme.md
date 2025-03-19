@@ -2,7 +2,7 @@
 This application allows pasting into any destination (even citrix). This is possible by sending the keystrokes in quick succession.
 After starting the application the hotkey "ctrl + shift + v" can be used to automatically paste the last entry in the clipboard.
 
-> :warning: **When copying multiple lines**: Return key is sent after every line, which can lead to issues in single-line inputs!
+> :warning: **When copying multiple lines**: Return key is sent after every line, which can lead to unexpected behaviour in single-line inputs and IDEs with auto-complete like VS-Code or IntelliJ!
 
 ## Installation
 To install the application it has to be built using cargo.
